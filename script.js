@@ -42,3 +42,9 @@ document.getElementById('copyEnquiry').addEventListener('click',async()=>{
  try{await navigator.clipboard.writeText(latestEnquiryText);document.getElementById('copyEnquiry').textContent='COPIED — PASTE INTO YOUR EMAIL';}
  catch(err){document.getElementById('formnote').textContent='Clipboard access is unavailable. Please email russellpaledi@gmail.com and include your project details.';}
 });
+
+document.querySelectorAll('[data-package]').forEach(link=>link.addEventListener('click',()=>{
+ const map={Starter:'Creative Design & Branding',Growth:'Social Media Management',Premium:'Marketing Strategy & Campaigns'};
+ const service=document.querySelector('#form [name="service"]');
+ if(service&&map[link.dataset.package])service.value=map[link.dataset.package];
+}));
