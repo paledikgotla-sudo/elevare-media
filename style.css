@@ -96,3 +96,40 @@ header{position:sticky;top:0;z-index:15;backdrop-filter:blur(14px);box-shadow:0 
 .testimonial-by small{font-size:9px;color:#788395}
 @media(max-width:850px){.testimonial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:580px){.testimonial-grid{grid-template-columns:1fr}.testimonial-card{min-height:245px}}
+
+
+/* Visual polish pass: cinematic depth, subtle motion and richer image treatments */
+.hero{position:relative;isolation:isolate}
+.hero:before{content:"";position:absolute;width:520px;height:520px;right:-160px;top:-180px;border-radius:50%;background:radial-gradient(circle,#d4af3726 0%,#d4af3700 68%);pointer-events:none;z-index:-1;animation:ambientDrift 12s ease-in-out infinite alternate}
+.hero:after{content:"";position:absolute;width:300px;height:300px;left:-180px;bottom:-170px;border-radius:50%;background:radial-gradient(circle,#5578b52b 0%,transparent 70%);pointer-events:none;z-index:-1}
+.art{perspective:1000px}
+.hero-photo{position:absolute;inset:20px 10px 20px 20px;overflow:hidden;border:1px solid #ffffff38;box-shadow:0 25px 70px #0008;transform:rotate(2deg);border-radius:3px}
+.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#08132612 15%,#081326a8 100%),linear-gradient(115deg,#d4af3728,transparent 45%);pointer-events:none}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.8);animation:photoFloat 22s ease-in-out infinite alternate}
+.hero-photo span{position:absolute;z-index:1;left:22px;bottom:22px;color:#fff;font:800 10px Manrope;letter-spacing:2px;border-left:3px solid var(--gold);padding:10px 0 10px 12px}
+.front{z-index:2;box-shadow:0 24px 65px #0007;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.art:hover .front{transform:translate(-48px,18px) rotate(-4deg);box-shadow:0 30px 80px #0009}
+.art:hover .hero-photo{transform:rotate(0deg) scale(1.015);transition:transform .6s ease}
+.hero-photo{transition:transform .6s ease}
+.strip{position:relative;overflow:hidden}
+.strip:after{content:"";display:block;width:80px;height:1px;background:var(--gold);margin-top:15px;animation:stripSweep 4s ease-in-out infinite}
+.portfolio-card{isolation:isolate;border-radius:3px;box-shadow:0 14px 35px #0b15301a;transition:transform .4s ease,box-shadow .4s ease}
+.portfolio-card:after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,#ffffff16 0%,transparent 32%,transparent 68%,#d4af3722 100%);pointer-events:none;z-index:-1}
+.portfolio-card .creative-photo{transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .5s ease}
+.portfolio-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px #0b15302b}
+.portfolio-card:hover .creative-photo{transform:scale(1.08);filter:saturate(1.18)}
+.case-visual{transition:background-size .6s ease}
+.case-card:hover .case-visual:after{background:linear-gradient(90deg,#081326eb,#08132650)}
+.lab-card{position:relative;overflow:hidden;isolation:isolate;transition:transform .35s ease,box-shadow .35s ease}
+.lab-card:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,#ffffff20 48%,transparent 68%);transform:translateX(-120%);transition:transform .8s ease;z-index:-1}
+.lab-card:hover{transform:translateY(-6px);box-shadow:0 20px 38px #0b15301f}
+.lab-card:hover:after{transform:translateX(120%)}
+.service-tab,.btn,.navbtn,.prices article,.insights article{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,background .25s ease}
+.prices article:hover{transform:translateY(-5px);box-shadow:0 20px 45px #0b153018}
+.insights article{border-top:2px solid transparent}
+.insights article:hover{border-top-color:var(--gold);transform:translateY(-4px)}
+/* Soft entrance animation, respecting accessibility preferences */
+@keyframes ambientDrift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-35px,25px,0) scale(1.08)}}
+@keyframes photoFloat{from{transform:scale(1.02) translateX(0)}to{transform:scale(1.1) translateX(-1.2%)}}
+@keyframes stripSweep{0%,100%{transform:translateX(0);opacity:.55}50%{transform:translateX(45px);opacity:1}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
