@@ -30,3 +30,29 @@
 .portfolio-card .creative-bottom b{color:#f4d77f}
 @media(max-width:850px){.portfolio-showcase{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:580px){.portfolio-showcase{grid-template-columns:1fr}.portfolio-showcase .portfolio-card{height:390px}.portfolio-card .creative-copy h3{font-size:39px}}
+
+
+/* Case studies: clearly labelled concept work */
+.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.case-card{background:#fff;border:1px solid #e0e4ea;box-shadow:0 12px 32px #0b153012;min-width:0}
+.case-visual{height:245px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background-size:cover;background-position:center;position:relative;isolation:isolate;overflow:hidden}
+.case-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#081326d9,#08132640);z-index:-1}
+.case-visual span,.case-visual small{font-size:8px;letter-spacing:1.5px;font-weight:700}
+.case-visual b{font:800 clamp(26px,2.5vw,35px)/.98 Manrope;letter-spacing:-1px}
+.case-visual em{font-style:normal;color:#f0cc62}
+.case-food{background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=85')}
+.case-property{background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85')}
+.case-beauty{background-image:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85')}
+.case-body{padding:24px}
+.case-body>label{display:block;font-size:8px;letter-spacing:1.5px;margin:20px 0 8px;color:#a17b15}
+.case-body>label:first-child{margin-top:0}
+.case-body h3{font-size:18px;line-height:1.3;margin:0 0 8px}
+.case-body p,.case-body li{font-size:11px;line-height:1.75;color:#6d788a}
+.case-body ul{padding-left:17px;margin:8px 0 20px}
+.case-outcome{padding:14px;background:#f3f4f6;border-left:3px solid var(--gold);display:grid;gap:6px}
+.case-outcome b{font-size:8px;letter-spacing:1.3px;color:#a17b15}
+.case-outcome span{font-size:11px;line-height:1.6;color:#465267}
+.case-card{transition:transform .3s ease,box-shadow .3s ease}
+.case-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px #0b15301c}
+@media(max-width:850px){.case-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.case-grid{grid-template-columns:1fr}.case-visual{height:230px}}
