@@ -19,3 +19,24 @@ video:{kicker:'03 / CONTENT IN MOTION',title:'Video & Content',emphasis:' Produc
 strategy:{kicker:'04 / DIRECTION & CAMPAIGNS',title:'Marketing Strategy',emphasis:' & Campaigns',description:'We help turn broad marketing ideas into a focused plan. Together, we clarify the audience, message, offer and next action, then shape a creative campaign direction that keeps the communication connected across the agreed channels.',includes:['Audience and positioning discussion','Campaign concepts, messaging and creative direction','Content themes and campaign rollout planning','Creative recommendations and review of next steps'],benefit:'Give your marketing clearer direction, stronger message consistency and a more intentional path from attention to enquiry.'}
 };
 document.querySelectorAll('.service-tab').forEach(tab=>tab.addEventListener('click',()=>{const item=serviceContent[tab.dataset.service];if(!item)return;document.querySelectorAll('.service-tab').forEach(t=>{const active=t===tab;t.classList.toggle('active',active);t.setAttribute('aria-selected',String(active))});const panel=document.getElementById('service-detail');panel.setAttribute('aria-labelledby',tab.id);document.getElementById('service-kicker').textContent=item.kicker;const title=document.getElementById('service-title');title.innerHTML=item.title+'<em>'+item.emphasis+'</em>';document.getElementById('service-description').textContent=item.description;document.getElementById('service-includes').innerHTML=item.includes.map(x=>'<li>'+x+'</li>').join('');document.getElementById('service-benefit').textContent=item.benefit;}));
+
+/* Reliable enquiry handoff with a copy-and-email fallback for static hosting. */
+let latestEnquiryText='';
+document.getElementById('form').onsubmit=e=>{
+ e.preventDefault();
+ const form=e.currentTarget;
+ const invalid=[...form.querySelectorAll('[required]')].find(el=>!el.checkValidity());
+ if(invalid){invalid.reportValidity();return;}
+ const d=new FormData(form);
+ latestEnquiryText='Hello Elevare Media,\n\nName: '+d.get('name')+'\nBusiness: '+(d.get('business')||'Not provided')+'\nEmail: '+d.get('email')+'\nService: '+d.get('service')+'\nTimeframe: '+d.get('timeframe')+'\nBudget: '+d.get('budget')+'\n\nProject details:\n'+d.get('message');
+ const subject=encodeURIComponent('New project enquiry — '+d.get('service'));
+ const body=encodeURIComponent(latestEnquiryText);
+ document.getElementById('formnote').textContent='Your email app should open with the enquiry. Review the details and press Send. If nothing opens, copy the enquiry below and email russellpaledi@gmail.com.';
+ document.getElementById('copyEnquiry').hidden=false;
+ window.location.href='mailto:russellpaledi@gmail.com?subject='+subject+'&body='+body;
+};
+document.getElementById('copyEnquiry').addEventListener('click',async()=>{
+ if(!latestEnquiryText)return;
+ try{await navigator.clipboard.writeText(latestEnquiryText);document.getElementById('copyEnquiry').textContent='COPIED — PASTE INTO YOUR EMAIL';}
+ catch(err){document.getElementById('formnote').textContent='Clipboard access is unavailable. Please email russellpaledi@gmail.com and include your project details.';}
+});
