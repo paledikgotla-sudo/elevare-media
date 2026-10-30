@@ -56,3 +56,15 @@
 .case-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px #0b15301c}
 @media(max-width:850px){.case-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:580px){.case-grid{grid-template-columns:1fr}.case-visual{height:230px}}
+
+/* Clickable creative service tabs and detail panel */
+.service-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid #ffffff30;margin-top:34px}
+.service-tab{min-height:112px;padding:18px 16px;background:transparent;color:#fff;border:0;border-right:1px solid #ffffff30;text-align:left;display:grid;grid-template-columns:1fr auto;gap:12px;align-content:space-between;cursor:pointer;transition:background .25s ease,color .25s ease}
+.service-tab:last-child{border-right:0}.service-tab i{font-style:normal;color:var(--gold);font-size:10px;grid-column:1/-1}.service-tab span{font:700 14px/1.35 Manrope}.service-tab b{color:var(--gold);font-size:17px;align-self:end}
+.service-tab:hover,.service-tab.active{background:var(--gold);color:var(--navy)}.service-tab:hover i,.service-tab.active i,.service-tab:hover b,.service-tab.active b{color:var(--navy)}
+.service-detail{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;padding:38px 40px;background:#132143;border:1px solid #ffffff30;border-top:3px solid var(--gold);min-height:300px}
+.service-detail-main>label{color:var(--gold);font-size:9px;letter-spacing:2px}.service-detail-main h3{font:800 clamp(26px,3vw,38px)/1.15 Manrope;margin:17px 0}.service-detail-main h3 em{font-style:normal;color:var(--gold)}.service-detail-main>p{max-width:560px;font-size:13px;line-height:1.9;color:#c1cada}
+.service-cta{display:inline-block;margin-top:15px;color:var(--gold);font-size:10px;font-weight:800;letter-spacing:1px;border-bottom:1px solid #d4af3766;padding-bottom:7px}
+.service-detail-side{display:grid;gap:24px;align-content:start}.service-detail-side>div{border-bottom:1px solid #ffffff25;padding-bottom:18px}.service-detail-side>div:last-child{border:0}.service-detail-side b{font-size:9px;letter-spacing:1.6px;color:var(--gold)}.service-detail-side ul{padding-left:17px;margin:12px 0 0}.service-detail-side li,.service-detail-side p{font-size:11px;line-height:1.85;color:#c1cada}.service-detail-side p{margin:10px 0 0}
+@media(max-width:850px){.service-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.service-tab:nth-child(2){border-right:0}.service-tab:nth-child(-n+2){border-bottom:1px solid #ffffff30}.service-detail{gap:28px;padding:30px}}
+@media(max-width:580px){.service-tabs{grid-template-columns:1fr}.service-tab{min-height:78px;border-right:0;border-bottom:1px solid #ffffff30;grid-template-columns:1fr auto}.service-tab:last-child{border-bottom:0}.service-tab i{grid-column:auto}.service-detail{grid-template-columns:1fr;padding:25px 20px;gap:22px}}
