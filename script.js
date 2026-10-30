@@ -20,6 +20,7 @@ strategy:{kicker:'04 / DIRECTION & CAMPAIGNS',title:'Marketing Strategy',emphasi
 };
 document.querySelectorAll('.service-tab').forEach(tab=>tab.addEventListener('click',()=>{const item=serviceContent[tab.dataset.service];if(!item)return;document.querySelectorAll('.service-tab').forEach(t=>{const active=t===tab;t.classList.toggle('active',active);t.setAttribute('aria-selected',String(active))});const panel=document.getElementById('service-detail');panel.setAttribute('aria-labelledby',tab.id);document.getElementById('service-kicker').textContent=item.kicker;const title=document.getElementById('service-title');title.innerHTML=item.title+'<em>'+item.emphasis+'</em>';document.getElementById('service-description').textContent=item.description;document.getElementById('service-includes').innerHTML=item.includes.map(x=>'<li>'+x+'</li>').join('');document.getElementById('service-benefit').textContent=item.benefit;}));
 
+
 /* Reliable enquiry handoff with a copy-and-email fallback for static hosting. */
 let latestEnquiryText='';
 document.getElementById('form').onsubmit=e=>{
@@ -28,7 +29,7 @@ document.getElementById('form').onsubmit=e=>{
  const invalid=[...form.querySelectorAll('[required]')].find(el=>!el.checkValidity());
  if(invalid){invalid.reportValidity();return;}
  const d=new FormData(form);
- latestEnquiryText='Hello Elevare Media,\n\nName: '+d.get('name')+'\nBusiness: '+(d.get('business')||'Not provided')+'\nEmail: '+d.get('email')+'\nService: '+d.get('service')+'\nTimeframe: '+d.get('timeframe')+'\nBudget: '+d.get('budget')+'\n\nProject details:\n'+d.get('message');
+ latestEnquiryText=['Hello Elevare Media,','', 'Name: '+d.get('name'),'Business: '+(d.get('business')||'Not provided'),'Email: '+d.get('email'),'Service: '+d.get('service'),'Timeframe: '+d.get('timeframe'),'Budget: '+d.get('budget'),'','Project details:',d.get('message')].join(String.fromCharCode(10));
  const subject=encodeURIComponent('New project enquiry — '+d.get('service'));
  const body=encodeURIComponent(latestEnquiryText);
  document.getElementById('formnote').textContent='Your email app should open with the enquiry. Review the details and press Send. If nothing opens, copy the enquiry below and email russellpaledi@gmail.com.';
