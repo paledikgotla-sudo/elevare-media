@@ -77,3 +77,9 @@ header{position:sticky;top:0;z-index:15;backdrop-filter:blur(14px);box-shadow:0 
 .faq-list{max-width:900px;margin:28px auto 0;border-top:1px solid #dfe3e9}.faq-list details{border-bottom:1px solid #dfe3e9;padding:0 4px}.faq-list summary{cursor:pointer;list-style:none;padding:21px 36px 21px 0;font:700 15px Manrope;color:var(--ink);position:relative}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:'+';position:absolute;right:5px;top:17px;font:500 24px Manrope;color:#a17b15}.faq-list details[open] summary:after{content:'−'}.faq-list details p{max-width:760px;padding:0 0 18px;margin:0;font-size:12px}
 .form-status{font-size:11px;line-height:1.7;color:#d5deeb;padding:12px;border-left:2px solid var(--gold);background:#0b153055}.copy-enquiry{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:11px 14px;font-size:9px;font-weight:800;letter-spacing:1px;cursor:pointer}.form-privacy{font-size:9px!important;color:#9caac0!important;line-height:1.6!important}.mobile-cta{display:none}
 @media(max-width:680px){.mobile-cta{display:block;position:fixed;z-index:14;left:14px;right:14px;bottom:12px;text-align:center;padding:15px;background:var(--gold);color:var(--navy);font-size:11px;font-weight:800;letter-spacing:1px;box-shadow:0 8px 25px #0005}body{padding-bottom:62px}.hero-proof{display:grid;gap:10px}.faq-list summary{font-size:13px}}
+
+.video-services article{min-height:235px;padding:25px;background:linear-gradient(145deg,#20375a,#101b30);border:1px solid #ffffff30;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s ease,border-color .3s ease}
+.video-services article:hover{transform:translateY(-5px);border-color:var(--gold)}
+.video-services article span{font-size:8px;letter-spacing:1.5px;color:var(--gold)}
+.video-services article b{font:800 25px/1.05 Manrope;color:#fff}
+.video-services article p{font-size:11px;line-height:1.7;color:#c1cada;margin:0}
